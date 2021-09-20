@@ -13,6 +13,8 @@ import numpy as np
 import graphviz
 
 class Create:
+  """generate the unbiased and biased dataset based on user specficiations"""
+  
   blank_data = pd.DataFrame(columns=['Gender', 'Skill', 'Academics', 'Experience', 'Ambition'])
   total_applicants = 0
   hires = 0
@@ -71,6 +73,8 @@ class Create:
     return unbiased_data, [unbiased_data.values, target]
 
 class Functions:
+  """set up and run decision tree algorithm"""
+  
   def label_accepted(self, data, hires):
     score = []
     accepted = []
@@ -102,6 +106,8 @@ class Functions:
       return y_predict, X_test, y_test, y_train
 
 class Graph:
+  """showcase results of program through graphs"""
+  
   def bar_graph(self, accepted_rejected_data, df, graph_type):
     df['Accepted_Rejected'] = accepted_rejected_data
     accepted_men, rejected_men, accepted_women, rejected_women = (0,0,0,0)
@@ -131,6 +137,8 @@ class Graph:
     plt.show()
     
 def run():
+    """engage the multiple parts of the program"""
+    
     template = create.blank_data
     biased_dataframe, bias_data = create.biased_dataset(template)
     unbiased_dataframe, no_bias_data = create.unbiased_dataset(template)
@@ -158,7 +166,8 @@ def run():
     graph.bar_graph(y_test, unbiased_dataframe, 'Pre-Generated Unbiased Hiring')
     graph.bar_graph(y_predict, unbiased_dataframe, 'Algorithm Generated Hiring')
 
-create = Create()
-functions = Functions()
-graph = Graph()
-run()
+if __name__ == "__main__":
+    create = Create()
+    functions = Functions()
+    graph = Graph()
+    run()
