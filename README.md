@@ -1,4 +1,4 @@
-# Training_Bias-Hiring
+# Training Bias - Hiring Algorithms
 
 A program that effectively demonstrates the discriminatory effect of algorithmic training bias on automated hiring.
  - Allows the user to generate their own training data to their own specifications
